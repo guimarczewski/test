@@ -18,7 +18,7 @@ def main():
         uploader = AmazonS3Uploader()
 
     if selected_tab == "Upload CSV":
-        UploadCSV(uploader)
+        UploadCSV(uploader, selected_bucket)
 
 if __name__ == "__main__":
     main()
