@@ -10,15 +10,7 @@ class VerificadorFrota:
         campos_obrig = []
         campos_faltantes = [campo for campo in self.campos_obrigatorios if campo not in self.df.columns]
         campos_obrig.append(campos_faltantes)
-        aviso = "Incluir campos obrigatórios: " + campos_obrig
-        return aviso
-
-    def verificar_campos_extras(self):
-        campos_ex = []
-        campos_validos = self.campos_obrigatorios + self.campos_nao_obrigatorios
-        campos_extras = [coluna for coluna in self.df.columns if coluna not in campos_validos]
-        campos_ex.append(campos_extras)
-        return campos_ex
+        return campos_obrig
 
     def verificar_formato_datas(self):
         erros = []
@@ -51,7 +43,6 @@ class VerificadorFrota:
     def verificar_dataframe(self):
         erros = []
         erros.extend(self.verificar_campos_obrigatorios())
-        erros.extend(self.verificar_campos_extras())
         erros.extend(self.verificar_formato_datas())
         ar_condicionado_erro = self.verificar_ar_condicionado()
         if ar_condicionado_erro:

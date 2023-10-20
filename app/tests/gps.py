@@ -8,13 +8,10 @@ class VerificadorGPS:
         self.campos_nao_obrigatorios = ["Velocidade", "Id_viagem", "Sentido", "Código da operadora"]
 
     def verificar_campos_obrigatorios(self):
+        campos_obrig = []
         campos_faltantes = [campo for campo in self.campos_obrigatorios if campo not in self.df.columns]
-        return campos_faltantes
-
-    def verificar_campos_extras(self):
-        campos_validos = self.campos_obrigatorios + self.campos_nao_obrigatorios
-        campos_extras = [coluna for coluna in self.df.columns if coluna not in campos_validos]
-        return campos_extras
+        campos_obrig.append(campos_faltantes)
+        return campos_obrig
 
     def verificar_formato_datas(self):
         erros = []
@@ -41,7 +38,6 @@ class VerificadorGPS:
     def verificar_dataframe(self):
         erros = []
         erros.extend(self.verificar_campos_obrigatorios())
-        erros.extend(self.verificar_campos_extras())
         erros.extend(self.verificar_formato_datas())
         erros.extend(self.verificar_formato_gps())
         sentido_erro = self.verificar_sentido()

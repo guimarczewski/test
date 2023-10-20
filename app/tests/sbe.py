@@ -8,13 +8,10 @@ class VerificadorBilhetagem:
         self.campos_nao_obrigatorios = ["Matrícula do Motorista", "Sentido", "Flag de desconto", "operador", "Latitude", "Longitude", "Stop_id"]
 
     def verificar_campos_obrigatorios(self):
+        campos_obrig = []
         campos_faltantes = [campo for campo in self.campos_obrigatorios if campo not in self.df.columns]
-        return campos_faltantes
-
-    def verificar_campos_extras(self):
-        campos_validos = self.campos_obrigatorios + self.campos_nao_obrigatorios
-        campos_extras = [coluna for coluna in self.df.columns if coluna not in campos_validos]
-        return campos_extras
+        campos_obrig.append(campos_faltantes)
+        return campos_obrig
 
     def verificar_formato_data_hora(self):
         erros = []
@@ -40,7 +37,6 @@ class VerificadorBilhetagem:
     def verificar_dataframe(self):
         erros = []
         erros.extend(self.verificar_campos_obrigatorios())
-        erros.extend(self.verificar_campos_extras())
         erros.extend(self.verificar_formato_data_hora())
         flag_de_desconto_erro = self.verificar_flag_de_desconto()
         if flag_de_desconto_erro:
