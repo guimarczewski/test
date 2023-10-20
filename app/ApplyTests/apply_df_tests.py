@@ -18,12 +18,3 @@ def aplicar_verificacoes(bucket, dataframe):
         print(f"Erros encontrados no DataFrame do bucket '{bucket}':")
         for erro in erros:
             st.error(erro)
-
-# Exemplo de uso:
-# Carregue o DataFrame a partir de algum arquivo ou fonte de dados
-df = pd.read_csv("seuarquivo.csv")
-
-# Escolha o bucket apropriado
-bucket_selecionado = "Monitoramento"  # Substitua pelo nome do bucket desejado
-
-aplicar_verificacoes(bucket_selecionado, df)
