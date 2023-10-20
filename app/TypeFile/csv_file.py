@@ -13,7 +13,7 @@ class UploadCSV:
         uploaded_file = st.file_uploader("Upload CSV file")
 
         if uploaded_file:
-            error_type = self.aplicar_verificacoes(bucket_name, uploaded_file)
+            error_type = aplicar_verificacoes(bucket_name, uploaded_file)
             if error_type is not True:
                 self.show_error_message(error_type)
             else:
