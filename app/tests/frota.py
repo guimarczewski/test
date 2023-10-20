@@ -7,7 +7,7 @@ class VerificadorFrota:
 
     def verificar_campos_obrigatorios(self):
         campos_obrig = []
-        campos_faltantes = [campo for campo in self.campos_obrigatorios if campo not in self.df.columns]
+        campos_faltantes = [campo for campo in self.campos_obrigatorios if campo not in self.df.columns.isin(self.campos_obrigatorios)]
         campos_obrig.append(campos_faltantes)
         return self.campos_obrigatorios, self.df.columns, campos_obrig, campos_faltantes
 
