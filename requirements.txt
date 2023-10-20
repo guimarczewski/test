@@ -1,0 +1,7 @@
+streamlit
+google-auth
+pandas
+google-cloud-storage==1.38.0
+s3fs
+git+https://github.com/streamlit/files-connection
+boto3

@@ -1,0 +1,1 @@
+from apply_df_tests import aplicar_verificacoes
