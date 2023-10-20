@@ -1,8 +1,8 @@
 import streamlit as st
 
-from test import VerificadorFrota
-from test import VerificadorGPS
-from test import VerificadorBilhetagem
+from tests import VerificadorFrota
+from tests import VerificadorGPS
+from tests import VerificadorBilhetagem
 
 def aplicar_verificacoes(bucket, dataframe):
     if bucket == "Frota":
