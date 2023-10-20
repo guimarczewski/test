@@ -5,10 +5,6 @@ from Uploader import AmazonS3Uploader
 from TypeFile import UploadAnyFile
 from TypeFile import UploadCSV
 
-from tests import VerificadorFrota
-from tests import VerificadorGPS
-from tests import VerificadorBilhetagem
-
 
 def main():
 
