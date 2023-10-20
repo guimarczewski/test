@@ -1,4 +1,4 @@
-from streamlit import st
+import streamlit as st
 
 def aplicar_verificacoes(bucket, dataframe):
     if bucket == "Frota":
