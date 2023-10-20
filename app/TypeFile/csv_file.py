@@ -15,7 +15,7 @@ class UploadCSV:
         if uploaded_file:
             error_type = aplicar_verificacoes(bucket_name, uploaded_file)
             if error_type is not True:
-                self.show_error_message(error_type)
+                pass
             else:
                 if st.button("Upload"):
                     s3 = boto3.resource('s3', aws_access_key_id=aws_access_key_id_input, aws_secret_access_key=aws_secret_access_key_input)
