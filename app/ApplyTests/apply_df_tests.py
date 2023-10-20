@@ -19,4 +19,6 @@ def aplicar_verificacoes(bucket, dataframe):
     if not erros:
         return True
     else:
-        erros
+        print(f"Erros encontrados no DataFrame do bucket '{bucket}':")
+        for erro in erros:
+            st.error(erro)

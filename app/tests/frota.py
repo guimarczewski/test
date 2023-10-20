@@ -7,8 +7,10 @@ class VerificadorFrota:
         self.campos_nao_obrigatorios = ["obs", "Capacidade sentado", "Capacidade em pe", "Capacidade total", "Ano chassi", "Ano modelo", "Ar-condicionado"]
 
     def verificar_campos_obrigatorios(self):
+        campos_obrig = []
         campos_faltantes = [campo for campo in self.campos_obrigatorios if campo not in self.df.columns]
-        return campos_faltantes
+        campos_obrig.extend(campos_faltantes)
+        return campos_obrig
 
     def verificar_campos_extras(self):
         campos_validos = self.campos_obrigatorios + self.campos_nao_obrigatorios
