@@ -2,7 +2,7 @@ import streamlit as st
 
 from Uploader import AmazonS3Uploader
 
-from .TypeFile import UploadAnyFile
+from TypeFile import UploadAnyFile
 from TypeFile import UploadCSV
 
 from tests import VerificadorFrota
