@@ -13,9 +13,11 @@ class VerificadorFrota:
         return campos_obrig
 
     def verificar_campos_extras(self):
+        campos_ex = []
         campos_validos = self.campos_obrigatorios + self.campos_nao_obrigatorios
         campos_extras = [coluna for coluna in self.df.columns if coluna not in campos_validos]
-        return campos_extras
+        campos_ex.append(campos_extras)
+        return campos_ex
 
     def verificar_formato_datas(self):
         erros = []
