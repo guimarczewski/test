@@ -3,14 +3,13 @@ import pandas as pd
 class VerificadorFrota:
     def __init__(self, dataframe):
         self.df = pd.read_csv(dataframe)
-        self.campos_obrigatorios = ["Id_veiculo", "Tipo veiculo", "Chassi", "Potencia", "ID da operadora", "Nome da operadora"]
-        self.campos_nao_obrigatorios = ["obs", "Capacidade sentado", "Capacidade em pe", "Capacidade total", "Ano chassi", "Ano modelo", "Ar-condicionado"]
+        self.campos_obrigatorios = ['Id_veiculo', 'Tipo veiculo', 'Chassi', 'Potencia', 'ID da operadora', 'Nome da operadora']
 
     def verificar_campos_obrigatorios(self):
         campos_obrig = []
         campos_faltantes = [campo for campo in self.campos_obrigatorios if campo not in self.df.columns]
         campos_obrig.append(campos_faltantes)
-        return campos_faltantes
+        return self.campos_obrigatorios, self.df.columns, campos_obrig, campos_faltantes
 
     def verificar_formato_datas(self):
         erros = []
